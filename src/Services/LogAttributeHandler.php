@@ -100,7 +100,16 @@ class LogAttributeHandler implements AttributeHandlerInterface
      */
     private function wrapMethodWithLogging(object $instance, string $method, Log $logAttribute): object
     {
+        // Log the method registration for debugging purposes
+        $this->logger->info("Registering logging for method", [
+            'class' => get_class($instance),
+            'method' => $method,
+            'level' => $logAttribute->level,
+            'channel' => $logAttribute->channel,
+        ]);
+        
         // This is a simplified example - real implementation would be more complex
+        // In a full implementation, you would create a proxy object that intercepts method calls
         return $instance;
     }
 }
