@@ -1,0 +1,86 @@
+{
+  "name": "pixielity/laravel-attribute-collector",
+  "description": "A Laravel package that leverages composer-attribute-collector for attribute-based functionality. Enables developers to use PHP 8+ attributes to define routes, event listeners, scheduled jobs, and middleware directly in their code, which are then automatically registered with Laravel's systems during application bootstrap.",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "attributes",
+    "php8",
+    "composer-plugin",
+    "route-attributes",
+    "event-listeners",
+    "scheduled-jobs",
+    "middleware",
+    "zero-runtime-cost",
+    "performance"
+  ],
+  "homepage": "https://github.com/pixielity/laravel-attribute-collector",
+  "support": {
+    "issues": "https://github.com/pixielity/laravel-attribute-collector/issues",
+    "source": "https://github.com/pixielity/laravel-attribute-collector"
+  },
+  "authors": [
+    {
+      "name": "Your Name",
+      "email": "your.email@example.com",
+      "homepage": "https://github.com/your-username",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "illuminate/support": "^9.0|^10.0|^11.0",
+    "illuminate/console": "^9.0|^10.0|^11.0",
+    "illuminate/container": "^9.0|^10.0|^11.0",
+    "illuminate/routing": "^9.0|^10.0|^11.0",
+    "illuminate/events": "^9.0|^10.0|^11.0",
+    "illuminate/cache": "^9.0|^10.0|^11.0",
+    "olvlvl/composer-attribute-collector": "^2.0"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.0",
+    "laravel/pint": "^1.24",
+    "orchestra/testbench": "^7.0|^8.0|^9.0",
+    "phpstan/phpstan": "^1.0",
+    "phpunit/phpunit": "^9.0|^10.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pixielity\\LaravelAttributeCollector\\": "src/"
+    },
+    "files": ["vendor/attributes.php"]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Pixielity\\LaravelAttributeCollector\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "format": "vendor/bin/pint",
+    "test": "vendor/bin/phpunit",
+    "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+    "analyse": "vendor/bin/phpstan analyse",
+    "check-style": "vendor/bin/php-cs-fixer fix --dry-run --diff",
+    "fix-style": "vendor/bin/php-cs-fixer fix"
+  },
+  "extra": {
+    "laravel": {
+      "providers": ["Pixielity\\LaravelAttributeCollector\\LaravelAttributeCollectorServiceProvider"],
+      "aliases": {
+        "AttributeRegistry": "Pixielity\\LaravelAttributeCollector\\Facades\\AttributeRegistry"
+      }
+    },
+    "composer-attribute-collector": {
+      "include": ["src", "app"]
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "olvlvl/composer-attribute-collector": true
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

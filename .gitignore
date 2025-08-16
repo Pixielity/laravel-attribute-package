@@ -1,0 +1,48 @@
+# Dependencies
+/vendor/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Laravel specific
+/storage/*.key
+/storage/logs/*.log
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
+
+# Testing
+/coverage/
+.phpunit.result.cache
+.phpunit.cache
+
+# Build files
+/build/
+/dist/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Composer
+composer.lock
+
+# PHPStan
+.phpstan.cache
+
+# PHP CS Fixer
+.php-cs-fixer.cache
