@@ -80,7 +80,7 @@ class MiddlewareAttributeHandler implements AttributeHandlerInterface
         $class = $classData['class'];
 
         // Find all routes that match this controller and apply middleware
-        $routes = $this->router->getRoutes();
+        $routes = $this->router->getRoutes()->getRoutes();
         foreach ($routes as $route) {
             if (strpos($route->getActionName(), $class) !== false) {
                 $route->middleware($middlewareAttribute->middleware);

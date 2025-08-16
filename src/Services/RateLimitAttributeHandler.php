@@ -89,7 +89,7 @@ class RateLimitAttributeHandler implements AttributeHandlerInterface
         }
 
         // Find routes that match the class/method and apply throttle middleware
-        $routes = $this->router->getRoutes();
+        $routes = $this->router->getRoutes()->getRoutes();
         foreach ($routes as $route) {
             $actionName = $route->getActionName();
             if (strpos($actionName, $class . '@' . $method) !== false) {
