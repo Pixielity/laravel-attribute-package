@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Pixielity\LaravelAttributeCollector\Services;
 
 use Illuminate\Auth\Access\Gate;
+use Illuminate\Contracts\Container\Container;
 use Pixielity\LaravelAttributeCollector\Attributes\Authorize;
 use Pixielity\LaravelAttributeCollector\Interfaces\AttributeHandlerInterface;
 
@@ -33,16 +34,26 @@ class AuthorizeAttributeHandler implements AttributeHandlerInterface
     /**
      * Create a new AuthorizeAttributeHandler instance.
      *
-     * @param AttributeRegistry $registry Central registry for attribute discovery
-     * @param Gate              $gate     Laravel's authorization gate
+     * @param AttributeRegistry $registry  Central registry for attribute discovery
+     * @param Container         $container Laravel's service container for lazy resolution
      */
     public function __construct(
         /** @var AttributeRegistry Registry for discovering Authorize attributes */
         private AttributeRegistry $registry,
 
-        /** @var Gate Laravel's authorization gate */
-        private Gate $gate
+        /** @var Container Laravel's service container for lazy Gate resolution */
+        private Container $container
     ) {}
+
+    /**
+     * Get the Gate instance lazily to avoid early dependency resolution issues.
+     *
+     * @return Gate Laravel's authorization gate
+     */
+    private function getGate(): Gate
+    {
+        return $this->container->make(Gate::class);
+    }
 
     /**
      * Process and register all Authorize attributes.
@@ -105,11 +116,13 @@ class AuthorizeAttributeHandler implements AttributeHandlerInterface
      */
     private function registerGateAuthorization(Authorize $attribute, string $class, string $method): void
     {
+        $gate = $this->getGate();
+
         // Use the gate to define authorization logic for the method
         $gateName = $attribute->gate ?? $class.'@'.$method;
 
-        if (! $this->gate->has($gateName)) {
-            $this->gate->define($gateName, function ($user) use ($attribute) {
+        if (! $gate->has($gateName)) {
+            $gate->define($gateName, function ($user) use ($attribute) {
                 // Implementation would depend on the specific authorization logic
                 // For now, we acknowledge the attribute but return true as placeholder
                 unset($attribute); // Acknowledge the attribute parameter
