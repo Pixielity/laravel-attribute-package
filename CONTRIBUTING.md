@@ -14,25 +14,25 @@ Thank you for considering contributing to Laravel Attribute Collector! This docu
 
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
-   \`\`\`bash
+   ```bash
    git clone https://github.com/your-username/laravel-attribute-collector.git
    cd laravel-attribute-collector
-   \`\`\`
+   ```
 
 3. **Install dependencies**:
-   \`\`\`bash
+   ```bash
    composer install
-   \`\`\`
+   ```
 
 4. **Run the test suite** to ensure everything works:
-   \`\`\`bash
+   ```bash
    composer test
-   \`\`\`
+   ```
 
 5. **Run static analysis**:
-   \`\`\`bash
+   ```bash
    composer analyse
-   \`\`\`
+   ```
 
 ## 🔧 Development Workflow
 
@@ -47,24 +47,24 @@ Use descriptive branch names:
 ### Making Changes
 
 1. **Create a feature branch**:
-   \`\`\`bash
+   ```bash
    git checkout -b feature/your-feature-name
-   \`\`\`
+   ```
 
 2. **Make your changes** following the coding standards
 3. **Add tests** for new functionality
 4. **Update documentation** if needed
 5. **Run the test suite**:
-   \`\`\`bash
+   ```bash
    composer test
    composer analyse
    composer check-style
-   \`\`\`
+   ```
 
 6. **Commit your changes** with descriptive messages:
-   \`\`\`bash
+   ```bash
    git commit -m "Add cache attribute with TTL support"
-   \`\`\`
+   ```
 
 ## 📝 Coding Standards
 
@@ -80,7 +80,7 @@ This project follows **PSR-12** coding standards. Please ensure your code adhere
 
 ### Example Code Style
 
-\`\`\`php
+```php
 <?php
 
 declare(strict_types=1);
@@ -132,7 +132,7 @@ class CustomAttributeHandler implements AttributeHandlerInterface
         // Implementation details
     }
 }
-\`\`\`
+```
 
 ## 🧪 Testing
 
@@ -144,7 +144,7 @@ class CustomAttributeHandler implements AttributeHandlerInterface
 
 ### Test Structure
 
-\`\`\`php
+```php
 <?php
 
 declare(strict_types=1);
@@ -170,11 +170,11 @@ class CustomAttributeHandlerTest extends TestCase
         $this->assertTrue(true);
     }
 }
-\`\`\`
+```
 
 ### Running Tests
 
-\`\`\`bash
+```bash
 # Run all tests
 composer test
 
@@ -186,7 +186,7 @@ composer test-coverage
 
 # Run static analysis
 composer analyse
-\`\`\`
+```
 
 ## 📚 Documentation
 
@@ -194,7 +194,7 @@ composer analyse
 
 All public methods, classes, and properties must have comprehensive docblocks:
 
-\`\`\`php
+```php
 /**
  * Brief description of what this method does.
  * 
@@ -207,7 +207,7 @@ All public methods, classes, and properties must have comprehensive docblocks:
  * @throws InvalidArgumentException When parameter is invalid
  * 
  * @example
- * \`\`\`php
+ * ```php
  * $result = $handler->processAttribute('example', ['option' => 'value']);
  * ```
  */
@@ -215,7 +215,7 @@ public function processAttribute(string $parameter, array $options = []): bool
 {
     // Implementation
 }
-\`\`\`
+```
 
 ### README Updates
 
@@ -230,18 +230,18 @@ When adding new features:
 ### Before Submitting
 
 1. **Ensure all tests pass**:
-   \`\`\`bash
+   ```bash
    composer test
    composer analyse
    composer check-style
-   \`\`\`
+   ```
 
 2. **Update documentation** if needed
 3. **Add changelog entry** in `CHANGELOG.md`
 4. **Rebase your branch** on the latest main:
-   \`\`\`bash
+   ```bash
    git rebase origin/main
-   \`\`\`
+   ```
 
 ### Pull Request Template
 
@@ -255,7 +255,7 @@ When creating a pull request, please include:
 
 ### Example PR Description
 
-\`\`\`markdown
+```markdown
 ## Description
 Add support for caching method results using the `#[Cache]` attribute.
 
@@ -275,7 +275,7 @@ None
 
 ## Related Issues
 Closes #123
-\`\`\`
+```
 
 ## 🐛 Bug Reports
 

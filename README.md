@@ -27,23 +27,23 @@ A Laravel package that leverages the power of `olvlvl/composer-attribute-collect
 
 Install the package via Composer:
 
-\`\`\`bash
+```bash
 composer require pixielity/laravel-attribute-collector
-\`\`\`
+```
 
 The package will automatically register its service provider.
 
 Publish the configuration file (optional):
 
-\`\`\`bash
+```bash
 php artisan vendor:publish --provider="Pixielity\LaravelAttributeCollector\LaravelAttributeCollectorServiceProvider" --tag="config"
-\`\`\`
+```
 
 ## ⚙️ Configuration
 
 The package automatically configures `composer-attribute-collector` to scan your `app` and `src` directories. You can customize this in your `composer.json`:
 
-\`\`\`json
+```json
 {
     "extra": {
         "composer-attribute-collector": {
@@ -55,11 +55,11 @@ The package automatically configures `composer-attribute-collector` to scan your
         }
     }
 }
-\`\`\`
+```
 
 Configuration options in `config/attribute-collector.php`:
 
-\`\`\`php
+```php
 return [
     'enabled' => env('ATTRIBUTE_COLLECTOR_ENABLED', true),
     'cache_enabled' => env('ATTRIBUTE_CACHE_ENABLED', true),
@@ -67,7 +67,7 @@ return [
         // Custom handler configurations
     ],
 ];
-\`\`\`
+```
 
 ## 🎯 Usage
 
@@ -75,7 +75,7 @@ return [
 
 Define routes using attributes instead of traditional route files:
 
-\`\`\`php
+```php
 <?php
 
 namespace App\Http\Controllers;
@@ -110,13 +110,13 @@ class UserController
         return $user;
     }
 }
-\`\`\`
+```
 
 ### Event Listener Attributes
 
 Register event listeners using attributes:
 
-\`\`\`php
+```php
 <?php
 
 namespace App\Listeners;
@@ -139,13 +139,13 @@ class UserEventListener
         // Log user activity
     }
 }
-\`\`\`
+```
 
 ### Scheduled Job Attributes
 
 Define scheduled tasks using attributes:
 
-\`\`\`php
+```php
 <?php
 
 namespace App\Jobs;
@@ -168,13 +168,13 @@ class MaintenanceJobs
         // Process orders every 6 hours
     }
 }
-\`\`\`
+```
 
 ### Caching Attributes
 
 Cache method results automatically:
 
-\`\`\`php
+```php
 <?php
 
 namespace App\Services;
@@ -197,13 +197,13 @@ class DataService
         return $this->buildReport();
     }
 }
-\`\`\`
+```
 
 ### Authorization Attributes
 
 Define authorization policies:
 
-\`\`\`php
+```php
 <?php
 
 namespace App\Http\Controllers;
@@ -228,7 +228,7 @@ class AdminController
         return response()->json(['success' => true]);
     }
 }
-\`\`\`
+```
 
 ## 📚 Available Attributes
 
@@ -275,7 +275,7 @@ class AdminController
 
 View all discovered attributes in your application:
 
-\`\`\`bash
+```bash
 # Discover all attributes
 php artisan attributes:discover
 
@@ -288,13 +288,13 @@ php artisan attributes:discover --type=validation
 
 # Show detailed information
 php artisan attributes:discover --detailed
-\`\`\`
+```
 
 ## 🔌 Extending the Package
 
 You can create custom attribute handlers by implementing the appropriate interface:
 
-\`\`\`php
+```php
 <?php
 
 namespace App\AttributeHandlers;
@@ -323,21 +323,21 @@ class CustomAttributeHandler implements AttributeHandlerInterface
         // Custom processing logic
     }
 }
-\`\`\`
+```
 
 Register your handler in a service provider:
 
-\`\`\`php
+```php
 public function boot()
 {
     $this->app->make(AttributeRegistry::class)
         ->registerHandler($this->app->make(CustomAttributeHandler::class));
 }
-\`\`\`
+```
 
 ### Creating Custom Attributes
 
-\`\`\`php
+```php
 <?php
 
 namespace App\Attributes;
@@ -353,7 +353,7 @@ class CustomAttribute
     ) {
     }
 }
-\`\`\`
+```
 
 ## ⚡ Performance
 
@@ -369,7 +369,7 @@ This package uses `olvlvl/composer-attribute-collector` which generates a static
 
 Run the test suite:
 
-\`\`\`bash
+```bash
 # Run all tests
 composer test
 
@@ -384,7 +384,7 @@ composer check-style
 
 # Fix code style
 composer fix-style
-\`\`\`
+```
 
 ## 📖 Examples
 
