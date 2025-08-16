@@ -78,7 +78,20 @@ class ValidateAttributeHandler implements AttributeHandlerInterface
         $class = $methodData['class'];
         $method = $methodData['method'];
 
-        // This would typically involve creating a custom middleware or using method interception
-        // to validate requests before they reach the controller method
+        // Create a validator instance to verify the rules are valid
+        $rules = $validateAttribute->rules ?? [];
+        $messages = $validateAttribute->messages ?? [];
+        
+        // Test the validation rules by creating a validator instance
+        // This ensures the rules are syntactically correct
+        try {
+            $this->validator->make([], $rules, $messages);
+        } catch (\Exception $e) {
+            // Log or handle invalid validation rules
+            error_log("Invalid validation rules for {$class}::{$method}: " . $e->getMessage());
+        }
+
+        // In a full implementation, this would involve creating a custom middleware
+        // or using method interception to validate requests before they reach the controller method
     }
 }
