@@ -46,11 +46,11 @@ class Cache
     /**
      * Create a new Cache attribute instance.
      *
-     * @param  int|null  $ttl  Cache time-to-live in seconds (null = forever)
-     * @param  string|null  $key  Custom cache key pattern (supports placeholders)
-     * @param  array  $tags  Cache tags for grouped invalidation
-     * @param  string|null  $store  Specific cache store to use
-     * @param  bool  $remember  Whether to use remember() or put() method
+     * @param int|null    $ttl      Cache time-to-live in seconds (null = forever)
+     * @param string|null $key      Custom cache key pattern (supports placeholders)
+     * @param array       $tags     Cache tags for grouped invalidation
+     * @param string|null $store    Specific cache store to use
+     * @param bool        $remember Whether to use remember() or put() method
      */
     public function __construct(
         /** @var int|null Cache duration in seconds, null for permanent cache */

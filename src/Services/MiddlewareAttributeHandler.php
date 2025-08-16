@@ -32,8 +32,8 @@ class MiddlewareAttributeHandler implements AttributeHandlerInterface
     /**
      * Create a new MiddlewareAttributeHandler instance.
      *
-     * @param  AttributeRegistry  $registry  Central registry for attribute discovery
-     * @param  Router  $router  Laravel's router for middleware application
+     * @param AttributeRegistry $registry Central registry for attribute discovery
+     * @param Router            $router   Laravel's router for middleware application
      */
     public function __construct(
         /** @var AttributeRegistry Registry for discovering Middleware attributes */
@@ -71,7 +71,7 @@ class MiddlewareAttributeHandler implements AttributeHandlerInterface
      *
      * Applies middleware to all routes in a controller class.
      *
-     * @param  array{class: string, attribute: Middleware}  $classData  Class with Middleware attribute
+     * @param array{class: string, attribute: Middleware} $classData Class with Middleware attribute
      */
     private function registerClassMiddleware(array $classData): void
     {
@@ -93,7 +93,7 @@ class MiddlewareAttributeHandler implements AttributeHandlerInterface
      *
      * Applies middleware to specific controller methods.
      *
-     * @param  array{class: string, method: string, attribute: Middleware}  $methodData  Method with Middleware attribute
+     * @param array{class: string, method: string, attribute: Middleware} $methodData Method with Middleware attribute
      */
     private function registerMethodMiddleware(array $methodData): void
     {

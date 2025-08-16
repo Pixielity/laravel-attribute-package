@@ -50,13 +50,13 @@ class Authorize
     /**
      * Create a new Authorize attribute instance.
      *
-     * @param  string|null  $policy  Policy method to check authorization
-     * @param  string|null  $model  Model class for policy authorization
-     * @param  string|null  $gate  Gate name for gate-based authorization
-     * @param  array  $roles  Required user roles for access
-     * @param  array  $permissions  Required permissions for access
-     * @param  string|null  $guard  Authentication guard to use
-     * @param  bool  $requireAll  Whether all roles/permissions are required (AND) or any (OR)
+     * @param string|null $policy      Policy method to check authorization
+     * @param string|null $model       Model class for policy authorization
+     * @param string|null $gate        Gate name for gate-based authorization
+     * @param array       $roles       Required user roles for access
+     * @param array       $permissions Required permissions for access
+     * @param string|null $guard       Authentication guard to use
+     * @param bool        $requireAll  Whether all roles/permissions are required (AND) or any (OR)
      */
     public function __construct(
         /** @var string|null Policy method name for model authorization */

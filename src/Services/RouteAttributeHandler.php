@@ -40,8 +40,8 @@ class RouteAttributeHandler implements RouteHandlerInterface
     /**
      * Create a new RouteAttributeHandler instance.
      *
-     * @param  AttributeRegistry  $registry  Central registry for attribute discovery
-     * @param  Router  $router  Laravel's router instance for route registration
+     * @param AttributeRegistry $registry Central registry for attribute discovery
+     * @param Router            $router   Laravel's router instance for route registration
      */
     public function __construct(
         /** @var AttributeRegistry Central registry for discovering Route attributes */
@@ -87,7 +87,7 @@ class RouteAttributeHandler implements RouteHandlerInterface
      * a corresponding Laravel route with all specified configurations
      * including HTTP method, URI pattern, middleware, and constraints.
      *
-     * @param  array{class: string, method: string, attribute: Route}  $methodData  Route attribute data
+     * @param array{class: string, method: string, attribute: Route} $methodData Route attribute data
      */
     public function registerRoute(array $methodData): void
     {
@@ -135,9 +135,9 @@ class RouteAttributeHandler implements RouteHandlerInterface
      * to specific methods). This provides a flexible way to layer middleware
      * beyond what's specified in the Route attribute itself.
      *
-     * @param  \Illuminate\Routing\Route  $route  The Laravel route instance to apply middleware to
-     * @param  string  $class  Fully qualified class name containing the route method
-     * @param  string  $method  Method name that handles the route
+     * @param \Illuminate\Routing\Route $route  The Laravel route instance to apply middleware to
+     * @param string                    $class  Fully qualified class name containing the route method
+     * @param string                    $method Method name that handles the route
      */
     private function applyMiddlewareAttributes($route, string $class, string $method): void
     {

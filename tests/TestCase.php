@@ -37,7 +37,8 @@ abstract class TestCase extends Orchestra
      * This method registers the package service provider with the
      * Laravel application during testing.
      *
-     * @param  \Illuminate\Foundation\Application  $app  The Laravel application instance
+     * @param \Illuminate\Foundation\Application $app The Laravel application instance
+     *
      * @return array<int, class-string> Array of service provider class names
      */
     protected function getPackageProviders($app): array
@@ -53,7 +54,7 @@ abstract class TestCase extends Orchestra
      * This method allows you to configure the Laravel application
      * environment specifically for testing purposes.
      *
-     * @param  \Illuminate\Foundation\Application  $app  The Laravel application instance
+     * @param \Illuminate\Foundation\Application $app The Laravel application instance
      */
     protected function defineEnvironment($app): void
     {
@@ -61,10 +62,10 @@ abstract class TestCase extends Orchestra
         $app['config']->set('attribute-collector.enabled', true);
         $app['config']->set('cache.default', 'array');
         $app['config']->set('database.default', 'testing');
-        
+
         // Disable authorization handler during testing to avoid Gate dependency issues
         $app['config']->set('attribute-collector.auto_register_authorization', false);
-        
+
         // Set up basic auth guard configuration for testing
         $app['config']->set('auth.defaults.guard', 'web');
         $app['config']->set('auth.guards.web', [

@@ -15,7 +15,7 @@ interface RouteHandlerInterface extends AttributeHandlerInterface
     /**
      * Register a single route from attribute data.
      *
-     * @param  array  $methodData  Route attribute data
+     * @param array $methodData Route attribute data
      */
     public function registerRoute(array $methodData): void;
 }

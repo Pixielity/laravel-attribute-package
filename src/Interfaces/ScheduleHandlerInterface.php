@@ -15,7 +15,7 @@ interface ScheduleHandlerInterface extends AttributeHandlerInterface
     /**
      * Register a scheduled task from attribute data.
      *
-     * @param  array  $methodData  Schedule attribute data
+     * @param array $methodData Schedule attribute data
      */
     public function registerScheduledTask(array $methodData): void;
 }

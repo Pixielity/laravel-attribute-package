@@ -33,9 +33,9 @@ class LogAttributeHandler implements AttributeHandlerInterface
     /**
      * Create a new LogAttributeHandler instance.
      *
-     * @param  AttributeRegistry  $registry  Central registry for attribute discovery
-     * @param  LogManager  $logger  Laravel's log manager
-     * @param  Container  $container  Laravel service container for method interception
+     * @param AttributeRegistry $registry  Central registry for attribute discovery
+     * @param LogManager        $logger    Laravel's log manager
+     * @param Container         $container Laravel service container for method interception
      */
     public function __construct(
         /** @var AttributeRegistry Registry for discovering Log attributes */
@@ -73,7 +73,7 @@ class LogAttributeHandler implements AttributeHandlerInterface
      * Sets up method interception to automatically log method calls
      * based on the Log attribute configuration.
      *
-     * @param  array{class: string, method: string, attribute: Log}  $methodData  Method with Log attribute
+     * @param array{class: string, method: string, attribute: Log} $methodData Method with Log attribute
      */
     private function registerLogging(array $methodData): void
     {
@@ -93,21 +93,22 @@ class LogAttributeHandler implements AttributeHandlerInterface
      * Creates a proxy that intercepts method calls and logs them
      * based on the Log attribute configuration.
      *
-     * @param  object  $instance  The class instance to wrap
-     * @param  string  $method  The method name to log
-     * @param  Log  $logAttribute  The logging configuration
+     * @param object $instance     The class instance to wrap
+     * @param string $method       The method name to log
+     * @param Log    $logAttribute The logging configuration
+     *
      * @return object Wrapped instance with logging
      */
     private function wrapMethodWithLogging(object $instance, string $method, Log $logAttribute): object
     {
         // Log the method registration for debugging purposes
-        $this->logger->info("Registering logging for method", [
+        $this->logger->info('Registering logging for method', [
             'class' => get_class($instance),
             'method' => $method,
             'level' => $logAttribute->level,
             'channel' => $logAttribute->channel,
         ]);
-        
+
         // This is a simplified example - real implementation would be more complex
         // In a full implementation, you would create a proxy object that intercepts method calls
         return $instance;

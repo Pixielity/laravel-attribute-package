@@ -64,7 +64,7 @@ class LaravelAttributeCollectorServiceProvider extends ServiceProvider
             __DIR__.'/../config/attribute-collector.php',
             'attribute-collector'
         );
-        
+
         // Register core services as singletons to maintain state consistency
         $this->app->singleton(AttributeRegistry::class);
         $this->app->singleton(RouteAttributeHandler::class);
@@ -75,7 +75,7 @@ class LaravelAttributeCollectorServiceProvider extends ServiceProvider
         $this->app->singleton(RateLimitAttributeHandler::class);
         $this->app->singleton(LogAttributeHandler::class);
         $this->app->singleton(MiddlewareAttributeHandler::class);
-        
+
         // Only register AuthorizeAttributeHandler if authorization is enabled
         if (config('attribute-collector.auto_register_authorization', true)) {
             $this->app->singleton(AuthorizeAttributeHandler::class);
@@ -136,12 +136,12 @@ class LaravelAttributeCollectorServiceProvider extends ServiceProvider
         $registry->registerHandler($this->app->make(CacheAttributeHandler::class));
         $registry->registerHandler($this->app->make(ValidateAttributeHandler::class));
         $registry->registerHandler($this->app->make(RateLimitAttributeHandler::class));
-        
+
         // Only register AuthorizeAttributeHandler if authorization is enabled
         if (config('attribute-collector.auto_register_authorization', true)) {
             $registry->registerHandler($this->app->make(AuthorizeAttributeHandler::class));
         }
-        
+
         $registry->registerHandler($this->app->make(LogAttributeHandler::class));
         $registry->registerHandler($this->app->make(MiddlewareAttributeHandler::class));
 

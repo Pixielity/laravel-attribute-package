@@ -22,9 +22,9 @@
   },
   "authors": [
     {
-      "name": "Your Name",
-      "email": "your.email@example.com",
-      "homepage": "https://github.com/your-username",
+      "name": "Abdelrhman Kouta",
+      "email": "pixielity@outlook.com.com",
+      "homepage": "https://github.com/pixielity",
       "role": "Developer"
     }
   ],
@@ -41,15 +41,25 @@
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^3.0",
     "laravel/pint": "^1.24",
+    "nunomaduro/collision": "^6.0|^7.0|^8.0",
     "orchestra/testbench": "^7.0|^8.0|^9.0",
+    "phpstan/extension-installer": "^1.1",
     "phpstan/phpstan": "^1.0",
-    "phpunit/phpunit": "^9.0|^10.0"
+    "phpstan/phpstan-deprecation-rules": "^1.0",
+    "phpstan/phpstan-phpunit": "^1.0",
+    "phpunit/phpunit": "^9.0|^10.0",
+    "rector/rector": "^0.18",
+    "roave/security-advisories": "dev-latest",
+    "spatie/laravel-ray": "^1.0",
+    "symfony/var-dumper": "^6.0|^7.0"
   },
   "autoload": {
     "psr-4": {
       "Pixielity\\LaravelAttributeCollector\\": "src/"
     },
-    "files": ["vendor/attributes.php"]
+    "files": [
+      "vendor/attributes.php"
+    ]
   },
   "autoload-dev": {
     "psr-4": {
@@ -57,28 +67,105 @@
     }
   },
   "scripts": {
-    "format": "vendor/bin/pint",
-    "test": "vendor/bin/phpunit",
-    "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
-    "analyse": "vendor/bin/phpstan analyse",
-    "check-style": "vendor/bin/php-cs-fixer fix --dry-run --diff",
-    "fix-style": "vendor/bin/php-cs-fixer fix"
+    "post-autoload-dump": [
+      "@php artisan package:discover --ansi || true"
+    ],
+    "analyse": "php -d memory_limit=512M vendor/bin/phpstan analyse --ansi",
+    "analyse-max": "vendor/bin/phpstan analyse --level=max --ansi",
+    "analyse-src": "vendor/bin/phpstan analyse src --level=5 --ansi",
+    "analyse-tests": "vendor/bin/phpstan analyse tests --level=5 --ansi",
+    "baseline": "vendor/bin/phpstan analyse --generate-baseline",
+    "build": [
+      "@check-composer",
+      "@refresh-attributes",
+      "@format",
+      "@analyse",
+      "@test"
+    ],
+    "check-security": "composer audit",
+    "check-style": "vendor/bin/php-cs-fixer fix --dry-run --diff --ansi",
+    "check-style-pint": "vendor/bin/pint --test --ansi",
+    "clean": "rm -rf build coverage vendor .phpunit.result.cache",
+    "fix-style": "vendor/bin/php-cs-fixer fix --ansi",
+    "format": "vendor/bin/pint --ansi",
+    "format-check": "vendor/bin/pint --test --ansi",
+    "install-dev": "composer install --dev --prefer-dist --optimize-autoloader",
+    "normalize": "composer normalize --ansi",
+    "check-outdated": "composer outdated --direct --ansi",
+    "rector": "vendor/bin/rector process --dry-run --ansi",
+    "rector-fix": "vendor/bin/rector process --ansi",
+    "refresh-attributes": [
+      "composer dump-autoload --optimize --ansi",
+      "@php -r \"echo 'Attributes refreshed successfully!' . PHP_EOL;\""
+    ],
+    "setup": [
+      "@install-dev",
+      "@refresh-attributes"
+    ],
+    "test": "vendor/bin/phpunit --testdox",
+    "test-coverage": "vendor/bin/phpunit --coverage-html coverage --coverage-clover coverage.xml",
+    "test-coverage-text": "vendor/bin/phpunit --coverage-text",
+    "test-filter": "vendor/bin/phpunit --filter",
+    "test-unit": "vendor/bin/phpunit --testsuite=Unit --testdox",
+    "test-feature": "vendor/bin/phpunit --testsuite=Feature --testdox",
+    "update-dev": "composer update --dev --prefer-dist --optimize-autoloader --ansi",
+    "check-composer": "composer validate --strict --ansi",
+    "version": "@php -r \"echo 'Package version: ' . json_decode(file_get_contents('composer.json'))->version . PHP_EOL;\"",
+    "ci": [
+      "@check-composer",
+      "@check-security",
+      "@analyse",
+      "@format-check",
+      "@test-coverage"
+    ],
+    "ci-github": [
+      "@check-composer",
+      "@analyse",
+      "@format-check",
+      "@test-coverage"
+    ],
+    "dev": [
+      "@format",
+      "@analyse",
+      "@test"
+    ],
+    "qa": [
+      "@check-composer",
+      "@analyse-max",
+      "@rector",
+      "@format-check",
+      "@test-coverage-text"
+    ],
+    "pre-commit": [
+      "@format",
+      "@analyse-src",
+      "@test"
+    ],
+    "post-merge": [
+      "@refresh-attributes"
+    ]
   },
   "extra": {
     "laravel": {
-      "providers": ["Pixielity\\LaravelAttributeCollector\\LaravelAttributeCollectorServiceProvider"],
+      "providers": [
+        "Pixielity\\LaravelAttributeCollector\\LaravelAttributeCollectorServiceProvider"
+      ],
       "aliases": {
         "AttributeRegistry": "Pixielity\\LaravelAttributeCollector\\Facades\\AttributeRegistry"
       }
     },
     "composer-attribute-collector": {
-      "include": ["src", "app"]
+      "include": [
+        "src",
+        "app"
+      ]
     }
   },
   "config": {
     "sort-packages": true,
     "allow-plugins": {
-      "olvlvl/composer-attribute-collector": true
+      "olvlvl/composer-attribute-collector": true,
+      "phpstan/extension-installer": true
     }
   },
   "minimum-stability": "dev",

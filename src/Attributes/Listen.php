@@ -42,10 +42,10 @@ class Listen
     /**
      * Create a new Listen attribute instance.
      *
-     * @param  string|array<string>  $events  Single event class name or array of event class names to listen for
-     * @param  string|null  $queue  Optional queue name for asynchronous processing (null for synchronous)
-     * @param  int  $tries  Number of retry attempts if the listener fails (default: 1)
-     * @param  int  $timeout  Maximum execution time in seconds before timing out (default: 60)
+     * @param string|array<string> $events  Single event class name or array of event class names to listen for
+     * @param string|null          $queue   Optional queue name for asynchronous processing (null for synchronous)
+     * @param int                  $tries   Number of retry attempts if the listener fails (default: 1)
+     * @param int                  $timeout Maximum execution time in seconds before timing out (default: 60)
      */
     public function __construct(
         /** @var array<string> Array of event class names this listener handles */

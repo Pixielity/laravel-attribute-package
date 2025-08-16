@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="/Users/akouta/Herd/laravel-attribute-package/phpunit.xml" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="0.083530">
-    <testsuite name="Laravel Attribute Collector Test Suite" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="0.083530">
-      <testsuite name="Pixielity\LaravelAttributeCollector\Tests\Unit\AttributeRegistryTest" file="/Users/akouta/Herd/laravel-attribute-package/tests/Unit/AttributeRegistryTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="0.083530">
-        <testcase name="it_can_filter_attributes_by_type" file="/Users/akouta/Herd/laravel-attribute-package/tests/Unit/AttributeRegistryTest.php" line="64" class="Pixielity\LaravelAttributeCollector\Tests\Unit\AttributeRegistryTest" classname="Pixielity.LaravelAttributeCollector.Tests.Unit.AttributeRegistryTest" assertions="1" time="0.078683"/>
-        <testcase name="it_can_be_instantiated" file="/Users/akouta/Herd/laravel-attribute-package/tests/Unit/AttributeRegistryTest.php" line="42" class="Pixielity\LaravelAttributeCollector\Tests\Unit\AttributeRegistryTest" classname="Pixielity.LaravelAttributeCollector.Tests.Unit.AttributeRegistryTest" assertions="1" time="0.002700"/>
-        <testcase name="it_returns_array_of_attributes" file="/Users/akouta/Herd/laravel-attribute-package/tests/Unit/AttributeRegistryTest.php" line="52" class="Pixielity\LaravelAttributeCollector\Tests\Unit\AttributeRegistryTest" classname="Pixielity.LaravelAttributeCollector.Tests.Unit.AttributeRegistryTest" assertions="1" time="0.002146"/>
+  <testsuite name="/Users/akouta/Herd/laravel-attribute-package/phpunit.xml" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="0.080722">
+    <testsuite name="Laravel Attribute Collector Test Suite" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="0.080722">
+      <testsuite name="Pixielity\LaravelAttributeCollector\Tests\Unit\AttributeRegistryTest" file="/Users/akouta/Herd/laravel-attribute-package/tests/Unit/AttributeRegistryTest.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="0.080722">
+        <testcase name="it_can_filter_attributes_by_type" file="/Users/akouta/Herd/laravel-attribute-package/tests/Unit/AttributeRegistryTest.php" line="64" class="Pixielity\LaravelAttributeCollector\Tests\Unit\AttributeRegistryTest" classname="Pixielity.LaravelAttributeCollector.Tests.Unit.AttributeRegistryTest" assertions="1" time="0.075898"/>
+        <testcase name="it_can_be_instantiated" file="/Users/akouta/Herd/laravel-attribute-package/tests/Unit/AttributeRegistryTest.php" line="42" class="Pixielity\LaravelAttributeCollector\Tests\Unit\AttributeRegistryTest" classname="Pixielity.LaravelAttributeCollector.Tests.Unit.AttributeRegistryTest" assertions="1" time="0.002719"/>
+        <testcase name="it_returns_array_of_attributes" file="/Users/akouta/Herd/laravel-attribute-package/tests/Unit/AttributeRegistryTest.php" line="52" class="Pixielity\LaravelAttributeCollector\Tests\Unit\AttributeRegistryTest" classname="Pixielity.LaravelAttributeCollector.Tests.Unit.AttributeRegistryTest" assertions="1" time="0.002104"/>
       </testsuite>
     </testsuite>
   </testsuite>

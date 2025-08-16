@@ -58,7 +58,7 @@ class AttributeRegistry
      * and integrating them with Laravel's systems. Each handler must implement
      * the AttributeHandlerInterface to ensure consistent behavior.
      *
-     * @param  AttributeHandlerInterface  $handler  The handler to register
+     * @param AttributeHandlerInterface $handler The handler to register
      */
     public function registerHandler(AttributeHandlerInterface $handler): void
     {
@@ -90,7 +90,8 @@ class AttributeRegistry
      * data to find all classes that have been decorated with the specified attribute.
      * The results are returned as a Laravel Collection for convenient manipulation.
      *
-     * @param  string  $attributeClass  Fully qualified class name of the attribute to search for
+     * @param string $attributeClass Fully qualified class name of the attribute to search for
+     *
      * @return Collection<array{class: string, attribute: object}> Collection of classes with their attribute instances
      */
     public function findClassesWithAttribute(string $attributeClass): Collection
@@ -114,7 +115,8 @@ class AttributeRegistry
      * with Route attributes, event handler methods with Listen attributes,
      * or any other method-level attribute usage.
      *
-     * @param  string  $attributeClass  Fully qualified class name of the attribute to search for
+     * @param string $attributeClass Fully qualified class name of the attribute to search for
+     *
      * @return Collection<array{class: string, method: string, attribute: object}> Collection of methods with their attribute instances
      */
     public function findMethodsWithAttribute(string $attributeClass): Collection
@@ -139,7 +141,8 @@ class AttributeRegistry
      * decorated with attributes, useful for dependency injection,
      * configuration binding, or other property-level attribute usage.
      *
-     * @param  string  $attributeClass  Fully qualified class name of the attribute to search for
+     * @param string $attributeClass Fully qualified class name of the attribute to search for
+     *
      * @return Collection<array{class: string, property: string, attribute: object}> Collection of properties with their attribute instances
      */
     public function findPropertiesWithAttribute(string $attributeClass): Collection
@@ -163,7 +166,8 @@ class AttributeRegistry
      * This method retrieves all attributes that have been applied to a given class,
      * providing a comprehensive view of the class's attribute decorations.
      *
-     * @param  string  $className  Fully qualified class name to query
+     * @param string $className Fully qualified class name to query
+     *
      * @return object Object containing all attributes for the specified class
      */
     public function getAttributesForClass(string $className): object
@@ -201,7 +205,8 @@ class AttributeRegistry
      * This method finds all instances of a specific attribute class across
      * classes, methods, and properties in the application.
      *
-     * @param  string  $attributeClass  Fully qualified class name of the attribute type to filter by
+     * @param string $attributeClass Fully qualified class name of the attribute type to filter by
+     *
      * @return array Array of attributes matching the specified type, including their targets
      */
     public function getAttributesByType(string $attributeClass): array

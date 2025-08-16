@@ -43,11 +43,11 @@ class Schedule
     /**
      * Create a new Schedule attribute instance.
      *
-     * @param  string  $expression  Cron expression defining when the task should run (e.g., '0 0 * * *' for daily at midnight)
-     * @param  string|null  $timezone  Timezone for schedule execution (null uses application default)
-     * @param  bool  $withoutOverlapping  Prevent concurrent executions of the same task
-     * @param  bool  $runInBackground  Execute task in background without blocking other scheduled tasks
-     * @param  string|null  $description  Human-readable description for monitoring and debugging
+     * @param string      $expression         Cron expression defining when the task should run (e.g., '0 0 * * *' for daily at midnight)
+     * @param string|null $timezone           Timezone for schedule execution (null uses application default)
+     * @param bool        $withoutOverlapping Prevent concurrent executions of the same task
+     * @param bool        $runInBackground    Execute task in background without blocking other scheduled tasks
+     * @param string|null $description        Human-readable description for monitoring and debugging
      */
     public function __construct(
         /** @var string Cron expression (minute hour day month weekday) */
@@ -72,7 +72,8 @@ class Schedule
      * Convenience method for creating daily scheduled tasks.
      * Equivalent to cron expression '0 0 * * *'.
      *
-     * @param  string|null  $timezone  Timezone for execution
+     * @param string|null $timezone Timezone for execution
+     *
      * @return self New Schedule instance configured for daily execution
      */
     public static function daily(?string $timezone = null): self
@@ -86,7 +87,8 @@ class Schedule
      * Convenience method for creating hourly scheduled tasks.
      * Equivalent to cron expression '0 * * * *'.
      *
-     * @param  string|null  $timezone  Timezone for execution
+     * @param string|null $timezone Timezone for execution
+     *
      * @return self New Schedule instance configured for hourly execution
      */
     public static function hourly(?string $timezone = null): self
@@ -101,7 +103,8 @@ class Schedule
      * Equivalent to cron expression '* * * * *'.
      * Use with caution as this creates high-frequency execution.
      *
-     * @param  string|null  $timezone  Timezone for execution
+     * @param string|null $timezone Timezone for execution
+     *
      * @return self New Schedule instance configured for per-minute execution
      */
     public static function everyMinute(?string $timezone = null): self
@@ -115,7 +118,8 @@ class Schedule
      * Convenience method for creating weekly scheduled tasks.
      * Equivalent to cron expression '0 0 * * 0' (Sunday = 0).
      *
-     * @param  string|null  $timezone  Timezone for execution
+     * @param string|null $timezone Timezone for execution
+     *
      * @return self New Schedule instance configured for weekly execution
      */
     public static function weekly(?string $timezone = null): self
@@ -129,7 +133,8 @@ class Schedule
      * Convenience method for creating monthly scheduled tasks.
      * Equivalent to cron expression '0 0 1 * *'.
      *
-     * @param  string|null  $timezone  Timezone for execution
+     * @param string|null $timezone Timezone for execution
+     *
      * @return self New Schedule instance configured for monthly execution
      */
     public static function monthly(?string $timezone = null): self

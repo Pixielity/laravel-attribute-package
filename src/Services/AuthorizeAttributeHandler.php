@@ -33,8 +33,8 @@ class AuthorizeAttributeHandler implements AttributeHandlerInterface
     /**
      * Create a new AuthorizeAttributeHandler instance.
      *
-     * @param  AttributeRegistry  $registry  Central registry for attribute discovery
-     * @param  Gate  $gate  Laravel's authorization gate
+     * @param AttributeRegistry $registry Central registry for attribute discovery
+     * @param Gate              $gate     Laravel's authorization gate
      */
     public function __construct(
         /** @var AttributeRegistry Registry for discovering Authorize attributes */
@@ -69,7 +69,7 @@ class AuthorizeAttributeHandler implements AttributeHandlerInterface
      * Sets up automatic authorization checks based on the Authorize
      * attribute configuration using policies, gates, or custom logic.
      *
-     * @param  array{class: string, method: string, attribute: Authorize}  $methodData  Method with Authorize attribute
+     * @param array{class: string, method: string, attribute: Authorize} $methodData Method with Authorize attribute
      */
     private function registerAuthorization(array $methodData): void
     {
@@ -90,29 +90,30 @@ class AuthorizeAttributeHandler implements AttributeHandlerInterface
     /**
      * Register policy-based authorization.
      *
-     * @param  Authorize  $attribute  The authorization attribute
-     * @param  string  $class  The controller class
-     * @param  string  $method  The controller method
+     * @param Authorize $attribute The authorization attribute
+     * @param string    $class     The controller class
+     * @param string    $method    The controller method
      */
     private function registerPolicyAuthorization(Authorize $attribute, string $class, string $method): void {}
 
     /**
      * Register gate-based authorization.
      *
-     * @param  Authorize  $attribute  The authorization attribute
-     * @param  string  $class  The controller class
-     * @param  string  $method  The controller method
+     * @param Authorize $attribute The authorization attribute
+     * @param string    $class     The controller class
+     * @param string    $method    The controller method
      */
-    private function registerGateAuthorization(Authorize $attribute, string $class, string $method): void 
+    private function registerGateAuthorization(Authorize $attribute, string $class, string $method): void
     {
         // Use the gate to define authorization logic for the method
-        $gateName = $attribute->gate ?? $class . '@' . $method;
-        
-        if (!$this->gate->has($gateName)) {
+        $gateName = $attribute->gate ?? $class.'@'.$method;
+
+        if (! $this->gate->has($gateName)) {
             $this->gate->define($gateName, function ($user) use ($attribute) {
                 // Implementation would depend on the specific authorization logic
                 // For now, we acknowledge the attribute but return true as placeholder
                 unset($attribute); // Acknowledge the attribute parameter
+
                 return true;
             });
         }
@@ -121,9 +122,9 @@ class AuthorizeAttributeHandler implements AttributeHandlerInterface
     /**
      * Register role/permission-based authorization.
      *
-     * @param  Authorize  $attribute  The authorization attribute
-     * @param  string  $class  The controller class
-     * @param  string  $method  The controller method
+     * @param Authorize $attribute The authorization attribute
+     * @param string    $class     The controller class
+     * @param string    $method    The controller method
      */
     private function registerRolePermissionAuthorization(Authorize $attribute, string $class, string $method): void {}
 }

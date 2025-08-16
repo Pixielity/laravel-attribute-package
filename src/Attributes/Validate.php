@@ -45,10 +45,10 @@ class Validate
     /**
      * Create a new Validate attribute instance.
      *
-     * @param  array  $rules  Laravel validation rules array
-     * @param  array  $messages  Custom validation error messages
-     * @param  array  $attributes  Custom attribute names for error messages
-     * @param  bool  $stopOnFirstFailure  Whether to stop validation on first failure
+     * @param array $rules              Laravel validation rules array
+     * @param array $messages           Custom validation error messages
+     * @param array $attributes         Custom attribute names for error messages
+     * @param bool  $stopOnFirstFailure Whether to stop validation on first failure
      */
     public function __construct(
         /** @var array Laravel validation rules in 'field' => 'rules' format */

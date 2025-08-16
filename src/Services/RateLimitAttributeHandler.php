@@ -31,8 +31,8 @@ class RateLimitAttributeHandler implements AttributeHandlerInterface
     /**
      * Create a new RateLimitAttributeHandler instance.
      *
-     * @param  AttributeRegistry  $registry  Central registry for attribute discovery
-     * @param  Router  $router  Laravel's router for middleware application
+     * @param AttributeRegistry $registry Central registry for attribute discovery
+     * @param Router            $router   Laravel's router for middleware application
      */
     public function __construct(
         /** @var AttributeRegistry Registry for discovering RateLimit attributes */
@@ -67,7 +67,7 @@ class RateLimitAttributeHandler implements AttributeHandlerInterface
      * Configures throttle middleware based on the RateLimit attribute
      * settings and applies it to the corresponding route.
      *
-     * @param  array{class: string, method: string, attribute: RateLimit}  $methodData  Method with RateLimit attribute
+     * @param array{class: string, method: string, attribute: RateLimit} $methodData Method with RateLimit attribute
      */
     private function applyRateLimit(array $methodData): void
     {
@@ -92,7 +92,7 @@ class RateLimitAttributeHandler implements AttributeHandlerInterface
         $routes = $this->router->getRoutes()->getRoutes();
         foreach ($routes as $route) {
             $actionName = $route->getActionName();
-            if (strpos($actionName, $class . '@' . $method) !== false) {
+            if (strpos($actionName, $class.'@'.$method) !== false) {
                 $route->middleware($throttleConfig);
             }
         }

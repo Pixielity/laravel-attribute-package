@@ -33,9 +33,9 @@ class CacheAttributeHandler implements CacheableInterface
     /**
      * Create a new CacheAttributeHandler instance.
      *
-     * @param  AttributeRegistry  $registry  Central registry for attribute discovery
-     * @param  CacheManager  $cache  Laravel's cache manager
-     * @param  Container  $container  Laravel service container for method interception
+     * @param AttributeRegistry $registry  Central registry for attribute discovery
+     * @param CacheManager      $cache     Laravel's cache manager
+     * @param Container         $container Laravel service container for method interception
      */
     public function __construct(
         /** @var AttributeRegistry Registry for discovering Cache attributes */
@@ -78,7 +78,7 @@ class CacheAttributeHandler implements CacheableInterface
     /**
      * Cache the processed attribute data.
      *
-     * @param  mixed  $data  Data to cache
+     * @param mixed $data Data to cache
      */
     public function cacheData(mixed $data): void
     {
@@ -106,7 +106,7 @@ class CacheAttributeHandler implements CacheableInterface
      * Sets up method interception to automatically cache method results
      * based on the Cache attribute configuration.
      *
-     * @param  array{class: string, method: string, attribute: Cache}  $methodData  Method with Cache attribute
+     * @param array{class: string, method: string, attribute: Cache} $methodData Method with Cache attribute
      */
     private function registerCacheInterception(array $methodData): void
     {
@@ -126,9 +126,10 @@ class CacheAttributeHandler implements CacheableInterface
      * Creates a proxy that intercepts method calls and applies caching
      * based on the Cache attribute configuration.
      *
-     * @param  object  $instance  The class instance to wrap
-     * @param  string  $method  The method name to cache
-     * @param  Cache  $cacheAttribute  The cache configuration
+     * @param object $instance       The class instance to wrap
+     * @param string $method         The method name to cache
+     * @param Cache  $cacheAttribute The cache configuration
+     *
      * @return object Wrapped instance with caching
      */
     private function wrapMethodWithCache(object $instance, string $method, Cache $cacheAttribute): object

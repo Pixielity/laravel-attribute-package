@@ -57,8 +57,8 @@ class JobAttributeHandler implements ScheduleHandlerInterface
     /**
      * Create a new job attribute handler instance
      *
-     * @param  AttributeRegistry  $registry  The attribute registry service
-     * @param  Container  $container  The Laravel service container
+     * @param AttributeRegistry $registry  The attribute registry service
+     * @param Container         $container The Laravel service container
      */
     public function __construct(
         AttributeRegistry $registry,
@@ -104,8 +104,8 @@ class JobAttributeHandler implements ScheduleHandlerInterface
      * an __invoke method or be callable. The schedule configuration is applied
      * from the Schedule attribute.
      *
-     * @param  array  $classData  Array containing class name and attribute instance
-     *                            Format: ['class' => string, 'attribute' => ScheduleAttribute]
+     * @param array $classData Array containing class name and attribute instance
+     *                         Format: ['class' => string, 'attribute' => ScheduleAttribute]
      *
      * @throws \InvalidArgumentException When class is not callable
      */
@@ -131,8 +131,8 @@ class JobAttributeHandler implements ScheduleHandlerInterface
      * will be called according to the schedule configuration defined in the
      * Schedule attribute.
      *
-     * @param  array  $methodData  Array containing class name, method name, and attribute
-     *                             Format: ['class' => string, 'method' => string, 'attribute' => ScheduleAttribute]
+     * @param array $methodData Array containing class name, method name, and attribute
+     *                          Format: ['class' => string, 'method' => string, 'attribute' => ScheduleAttribute]
      *
      * @throws \InvalidArgumentException When method is not callable
      */
@@ -159,8 +159,8 @@ class JobAttributeHandler implements ScheduleHandlerInterface
      * Laravel scheduled event. This includes timezone, overlap prevention,
      * background execution, and description settings.
      *
-     * @param  mixed  $event  The Laravel scheduled event instance
-     * @param  ScheduleAttribute  $scheduleAttribute  The schedule attribute with configuration
+     * @param mixed             $event             The Laravel scheduled event instance
+     * @param ScheduleAttribute $scheduleAttribute The schedule attribute with configuration
      */
     private function configureScheduledEvent($event, ScheduleAttribute $scheduleAttribute): void
     {
@@ -188,8 +188,8 @@ class JobAttributeHandler implements ScheduleHandlerInterface
      * a way to register individual scheduled tasks. It determines whether the task
      * is class-level or method-level and delegates to the appropriate private method.
      *
-     * @param  array  $methodData  Schedule attribute data containing class, method (optional), and attribute
-     *                             Format: ['class' => string, 'method' => string|null, 'attribute' => ScheduleAttribute]
+     * @param array $methodData Schedule attribute data containing class, method (optional), and attribute
+     *                          Format: ['class' => string, 'method' => string|null, 'attribute' => ScheduleAttribute]
      *
      * @throws \InvalidArgumentException When method data is invalid
      */

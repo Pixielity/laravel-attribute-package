@@ -1,0 +1,121 @@
+<?php
+
+namespace olvlvl\ComposerAttributeCollector;
+
+final class Attributes
+{
+    /**
+     * @template T of object
+     * @param class-string<T> $attribute
+     * @return TargetClass<T>[]
+     */
+    public static function findTargetClasses(string $attribute): array {}
+
+    /**
+     * @template T of object
+     * @param class-string<T> $attribute
+     * @return TargetMethod<T>[]
+     */
+    public static function findTargetMethods(string $attribute): array {}
+
+    /**
+     * @template T of object
+     * @param class-string<T> $attribute
+     * @return TargetProperty<T>[]
+     */
+    public static function findTargetProperties(string $attribute): array {}
+
+    /**
+     * @template T of object
+     * @param class-string<T> $attribute
+     * @return TargetParameter<T>[]
+     */
+    public static function findTargetParameters(string $attribute): array {}
+
+    /**
+     * @param class-string $class
+     * @return ForClass
+     */
+    public static function forClass(string $class): ForClass {}
+}
+
+/**
+ * @template T of object
+ */
+final class TargetClass
+{
+    /** @var T */
+    public readonly object $attribute;
+    public readonly string $name;
+
+    /**
+     * @param T $attribute
+     */
+    public function __construct(object $attribute, string $name) {}
+}
+
+/**
+ * @template T of object
+ */
+final class TargetMethod
+{
+    /** @var T */
+    public readonly object $attribute;
+    public readonly string $class;
+    public readonly string $name;
+
+    /**
+     * @param T $attribute
+     */
+    public function __construct(object $attribute, string $class, string $name) {}
+}
+
+/**
+ * @template T of object
+ */
+final class TargetProperty
+{
+    /** @var T */
+    public readonly object $attribute;
+    public readonly string $class;
+    public readonly string $name;
+
+    /**
+     * @param T $attribute
+     */
+    public function __construct(object $attribute, string $class, string $name) {}
+}
+
+/**
+ * @template T of object
+ */
+final class TargetParameter
+{
+    /** @var T */
+    public readonly object $attribute;
+    public readonly string $class;
+    public readonly string $method;
+    public readonly string $name;
+
+    /**
+     * @param T $attribute
+     */
+    public function __construct(object $attribute, string $class, string $method, string $name) {}
+}
+
+final class ForClass
+{
+    /** @var object[] */
+    public readonly array $classAttributes;
+    /** @var array<string, object[]> */
+    public readonly array $methodAttributes;
+    /** @var array<string, object[]> */
+    public readonly array $propertyAttributes;
+
+    /**
+     * @param object[] $classAttributes
+     * @param array<string, object[]> $methodAttributes
+     * @param array<string, object[]> $propertyAttributes
+     */
+    public function __construct(array $classAttributes, array $methodAttributes, array $propertyAttributes) {}
+}

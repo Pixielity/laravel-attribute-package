@@ -55,8 +55,8 @@ class EventAttributeHandler implements EventHandlerInterface
     /**
      * Create a new event attribute handler instance
      *
-     * @param  AttributeRegistry  $registry  The attribute registry service
-     * @param  Dispatcher  $events  The Laravel event dispatcher
+     * @param AttributeRegistry $registry The attribute registry service
+     * @param Dispatcher        $events   The Laravel event dispatcher
      */
     public function __construct(
         AttributeRegistry $registry,
@@ -102,8 +102,8 @@ class EventAttributeHandler implements EventHandlerInterface
      * The class should implement a handle method or be callable. Multiple
      * events can be listened to by a single class.
      *
-     * @param  array  $classData  Array containing class name and attribute instance
-     *                            Format: ['class' => string, 'attribute' => Listen]
+     * @param array $classData Array containing class name and attribute instance
+     *                         Format: ['class' => string, 'attribute' => Listen]
      *
      * @throws \InvalidArgumentException When class doesn't have a handle method
      */
@@ -125,8 +125,8 @@ class EventAttributeHandler implements EventHandlerInterface
      * will be called when any of the specified events are dispatched. This
      * allows for more granular event handling within a single class.
      *
-     * @param  array  $methodData  Array containing class name, method name, and attribute
-     *                             Format: ['class' => string, 'method' => string, 'attribute' => Listen]
+     * @param array $methodData Array containing class name, method name, and attribute
+     *                          Format: ['class' => string, 'method' => string, 'attribute' => Listen]
      *
      * @throws \InvalidArgumentException When method is not callable
      */
@@ -149,9 +149,9 @@ class EventAttributeHandler implements EventHandlerInterface
      * based on the provided method data. It determines whether to register a class-level
      * or method-level listener based on the data structure.
      *
-     * @param  array  $methodData  Event listener attribute data
-     *                             Format: ['class' => string, 'method' => string, 'attribute' => Listen]
-     *                             or ['class' => string, 'attribute' => Listen] for class-level
+     * @param array $methodData Event listener attribute data
+     *                          Format: ['class' => string, 'method' => string, 'attribute' => Listen]
+     *                          or ['class' => string, 'attribute' => Listen] for class-level
      *
      * @throws \InvalidArgumentException When method data is invalid or incomplete
      */

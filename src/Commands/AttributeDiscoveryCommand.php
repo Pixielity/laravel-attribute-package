@@ -62,7 +62,7 @@ class AttributeDiscoveryCommand extends Command
     /**
      * Create a new command instance
      *
-     * @param  AttributeRegistry  $registry  The attribute registry service
+     * @param AttributeRegistry $registry The attribute registry service
      */
     public function __construct(AttributeRegistry $registry)
     {

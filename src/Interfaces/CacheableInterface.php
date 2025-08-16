@@ -20,7 +20,7 @@ interface CacheableInterface extends AttributeHandlerInterface
     /**
      * Cache the processed attribute data.
      *
-     * @param  mixed  $data  Data to cache
+     * @param mixed $data Data to cache
      */
     public function cacheData(mixed $data): void;
 

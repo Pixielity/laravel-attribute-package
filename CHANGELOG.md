@@ -5,6 +5,7 @@ All notable changes to `laravel-attribute-collector` will be documented in this 
 ## v1.0.0 - 2024-01-XX
 
 ### Added
+
 - Initial release
 - Route attributes for defining HTTP routes with `#[Route]`
 - Event listener attributes with `#[Listen]`
@@ -23,6 +24,7 @@ All notable changes to `laravel-attribute-collector` will be documented in this 
 - Extensive documentation and examples
 
 ### Features
+
 - **Zero Runtime Cost**: Attributes collected at build time using composer-attribute-collector
 - **Type Safe**: Full PHP 8+ attribute support with proper type hints
 - **Extensible**: Easy to create custom attribute handlers
@@ -30,6 +32,7 @@ All notable changes to `laravel-attribute-collector` will be documented in this 
 - **Performance Optimized**: No reflection overhead during request handling
 
 ### Documentation
+
 - Comprehensive README with usage examples
 - Detailed examples for each attribute type
 - Configuration documentation
@@ -37,6 +40,7 @@ All notable changes to `laravel-attribute-collector` will be documented in this 
 - Security policy
 
 ### Testing
+
 - PHPUnit test suite setup
 - Orchestra Testbench integration
 - Code quality tools (PHPStan)
@@ -44,6 +48,7 @@ All notable changes to `laravel-attribute-collector` will be documented in this 
 ## Unreleased
 
 ### Planned Features
+
 - Additional attribute types (Queue, Broadcast, etc.)
 - Enhanced caching strategies
 - More authorization patterns

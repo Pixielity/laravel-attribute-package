@@ -47,14 +47,14 @@ class Log
     /**
      * Create a new Log attribute instance.
      *
-     * @param  string  $level  Log level (debug, info, notice, warning, error, critical, alert, emergency)
-     * @param  string|null  $channel  Log channel to use
-     * @param  bool  $logParams  Whether to log method parameters
-     * @param  bool  $logReturn  Whether to log return values
-     * @param  bool  $logTime  Whether to log execution time
-     * @param  bool  $logExceptions  Whether to log exceptions
-     * @param  string|null  $message  Custom log message template
-     * @param  array  $context  Additional context data to include
+     * @param string      $level         Log level (debug, info, notice, warning, error, critical, alert, emergency)
+     * @param string|null $channel       Log channel to use
+     * @param bool        $logParams     Whether to log method parameters
+     * @param bool        $logReturn     Whether to log return values
+     * @param bool        $logTime       Whether to log execution time
+     * @param bool        $logExceptions Whether to log exceptions
+     * @param string|null $message       Custom log message template
+     * @param array       $context       Additional context data to include
      */
     public function __construct(
         /** @var string Log level for the method execution */

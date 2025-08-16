@@ -33,8 +33,8 @@ class ValidateAttributeHandler implements AttributeHandlerInterface
     /**
      * Create a new ValidateAttributeHandler instance.
      *
-     * @param  AttributeRegistry  $registry  Central registry for attribute discovery
-     * @param  ValidationFactory  $validator  Laravel's validation factory
+     * @param AttributeRegistry $registry  Central registry for attribute discovery
+     * @param ValidationFactory $validator Laravel's validation factory
      */
     public function __construct(
         /** @var AttributeRegistry Registry for discovering Validate attributes */
@@ -69,7 +69,7 @@ class ValidateAttributeHandler implements AttributeHandlerInterface
      * Sets up automatic request validation based on the Validate
      * attribute configuration.
      *
-     * @param  array{class: string, method: string, attribute: Validate}  $methodData  Method with Validate attribute
+     * @param array{class: string, method: string, attribute: Validate} $methodData Method with Validate attribute
      */
     private function registerValidation(array $methodData): void
     {
@@ -81,14 +81,14 @@ class ValidateAttributeHandler implements AttributeHandlerInterface
         // Create a validator instance to verify the rules are valid
         $rules = $validateAttribute->rules ?? [];
         $messages = $validateAttribute->messages ?? [];
-        
+
         // Test the validation rules by creating a validator instance
         // This ensures the rules are syntactically correct
         try {
             $this->validator->make([], $rules, $messages);
         } catch (\Exception $e) {
             // Log or handle invalid validation rules
-            error_log("Invalid validation rules for {$class}::{$method}: " . $e->getMessage());
+            error_log("Invalid validation rules for {$class}::{$method}: ".$e->getMessage());
         }
 
         // In a full implementation, this would involve creating a custom middleware

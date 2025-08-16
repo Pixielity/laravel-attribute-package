@@ -46,11 +46,11 @@ class RateLimit
     /**
      * Create a new RateLimit attribute instance.
      *
-     * @param  int  $attempts  Maximum number of attempts allowed
-     * @param  int  $decayMinutes  Time window in minutes for rate limit reset
-     * @param  string  $by  Rate limiting strategy ('ip', 'user', 'api_key', or custom)
-     * @param  string|null  $key  Custom rate limit key for complex scenarios
-     * @param  string|null  $response  Custom response when rate limit is exceeded
+     * @param int         $attempts     Maximum number of attempts allowed
+     * @param int         $decayMinutes Time window in minutes for rate limit reset
+     * @param string      $by           Rate limiting strategy ('ip', 'user', 'api_key', or custom)
+     * @param string|null $key          Custom rate limit key for complex scenarios
+     * @param string|null $response     Custom response when rate limit is exceeded
      */
     public function __construct(
         /** @var int Maximum number of requests allowed in the time window */

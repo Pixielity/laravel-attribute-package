@@ -48,8 +48,8 @@ class Middleware
     /**
      * Create a new Middleware attribute instance.
      *
-     * @param  string|array<string>  $middleware  Single middleware name or array of middleware names to apply
-     * @param  array<string>  $parameters  Optional parameters to pass to the middleware
+     * @param string|array<string> $middleware Single middleware name or array of middleware names to apply
+     * @param array<string>        $parameters Optional parameters to pass to the middleware
      */
     public function __construct(
         /** @var array<string> Array of middleware names to apply */

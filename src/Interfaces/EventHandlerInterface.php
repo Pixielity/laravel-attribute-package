@@ -15,7 +15,7 @@ interface EventHandlerInterface extends AttributeHandlerInterface
     /**
      * Register an event listener from attribute data.
      *
-     * @param  array  $methodData  Event listener attribute data
+     * @param array $methodData Event listener attribute data
      */
     public function registerListener(array $methodData): void;
 }

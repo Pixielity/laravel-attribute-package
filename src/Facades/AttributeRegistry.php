@@ -9,9 +9,9 @@ use Pixielity\LaravelAttributeCollector\Services\AttributeRegistry as AttributeR
  * @method static \Illuminate\Support\Collection findClassesWithAttribute(string $attributeClass)
  * @method static \Illuminate\Support\Collection findMethodsWithAttribute(string $attributeClass)
  * @method static \Illuminate\Support\Collection findPropertiesWithAttribute(string $attributeClass)
- * @method static object getAttributesForClass(string $className)
- * @method static void registerHandler(\Pixielity\LaravelAttributeCollector\Interfaces\AttributeHandlerInterface $handler)
- * @method static void processAttributes()
+ * @method static object                         getAttributesForClass(string $className)
+ * @method static void                           registerHandler(\Pixielity\LaravelAttributeCollector\Interfaces\AttributeHandlerInterface $handler)
+ * @method static void                           processAttributes()
  */
 class AttributeRegistry extends Facade
 {

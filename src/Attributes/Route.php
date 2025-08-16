@@ -43,12 +43,12 @@ class Route
     /**
      * Create a new Route attribute instance.
      *
-     * @param  string  $method  The HTTP method for this route (GET, POST, PUT, PATCH, DELETE)
-     * @param  string  $uri  The URI pattern for this route (e.g., '/users/{id}')
-     * @param  string|null  $name  Optional route name for URL generation and route caching
-     * @param  array<string>  $middleware  Array of middleware names to apply to this route
-     * @param  string|null  $domain  Optional domain constraint for this route
-     * @param  array<string, string>  $where  Array of parameter constraints (parameter => regex pattern)
+     * @param string                $method     The HTTP method for this route (GET, POST, PUT, PATCH, DELETE)
+     * @param string                $uri        The URI pattern for this route (e.g., '/users/{id}')
+     * @param string|null           $name       Optional route name for URL generation and route caching
+     * @param array<string>         $middleware Array of middleware names to apply to this route
+     * @param string|null           $domain     Optional domain constraint for this route
+     * @param array<string, string> $where      Array of parameter constraints (parameter => regex pattern)
      */
     public function __construct(
         /** @var string The HTTP method (GET, POST, PUT, PATCH, DELETE) */
@@ -76,11 +76,12 @@ class Route
      * Convenience method for creating GET routes with a fluent interface.
      * GET routes are typically used for retrieving resources.
      *
-     * @param  string  $uri  The URI pattern for the route
-     * @param  string|null  $name  Optional route name
-     * @param  array<string>  $middleware  Middleware to apply
-     * @param  string|null  $domain  Domain constraint
-     * @param  array<string, string>  $where  Parameter constraints
+     * @param string                $uri        The URI pattern for the route
+     * @param string|null           $name       Optional route name
+     * @param array<string>         $middleware Middleware to apply
+     * @param string|null           $domain     Domain constraint
+     * @param array<string, string> $where      Parameter constraints
+     *
      * @return self New Route instance configured for GET method
      */
     public static function get(
@@ -99,11 +100,12 @@ class Route
      * Convenience method for creating POST routes with a fluent interface.
      * POST routes are typically used for creating new resources.
      *
-     * @param  string  $uri  The URI pattern for the route
-     * @param  string|null  $name  Optional route name
-     * @param  array<string>  $middleware  Middleware to apply
-     * @param  string|null  $domain  Domain constraint
-     * @param  array<string, string>  $where  Parameter constraints
+     * @param string                $uri        The URI pattern for the route
+     * @param string|null           $name       Optional route name
+     * @param array<string>         $middleware Middleware to apply
+     * @param string|null           $domain     Domain constraint
+     * @param array<string, string> $where      Parameter constraints
+     *
      * @return self New Route instance configured for POST method
      */
     public static function post(
@@ -122,11 +124,12 @@ class Route
      * Convenience method for creating PUT routes with a fluent interface.
      * PUT routes are typically used for updating entire resources.
      *
-     * @param  string  $uri  The URI pattern for the route
-     * @param  string|null  $name  Optional route name
-     * @param  array<string>  $middleware  Middleware to apply
-     * @param  string|null  $domain  Domain constraint
-     * @param  array<string, string>  $where  Parameter constraints
+     * @param string                $uri        The URI pattern for the route
+     * @param string|null           $name       Optional route name
+     * @param array<string>         $middleware Middleware to apply
+     * @param string|null           $domain     Domain constraint
+     * @param array<string, string> $where      Parameter constraints
+     *
      * @return self New Route instance configured for PUT method
      */
     public static function put(
@@ -145,11 +148,12 @@ class Route
      * Convenience method for creating PATCH routes with a fluent interface.
      * PATCH routes are typically used for partial resource updates.
      *
-     * @param  string  $uri  The URI pattern for the route
-     * @param  string|null  $name  Optional route name
-     * @param  array<string>  $middleware  Middleware to apply
-     * @param  string|null  $domain  Domain constraint
-     * @param  array<string, string>  $where  Parameter constraints
+     * @param string                $uri        The URI pattern for the route
+     * @param string|null           $name       Optional route name
+     * @param array<string>         $middleware Middleware to apply
+     * @param string|null           $domain     Domain constraint
+     * @param array<string, string> $where      Parameter constraints
+     *
      * @return self New Route instance configured for PATCH method
      */
     public static function patch(
@@ -168,11 +172,12 @@ class Route
      * Convenience method for creating DELETE routes with a fluent interface.
      * DELETE routes are typically used for removing resources.
      *
-     * @param  string  $uri  The URI pattern for the route
-     * @param  string|null  $name  Optional route name
-     * @param  array<string>  $middleware  Middleware to apply
-     * @param  string|null  $domain  Domain constraint
-     * @param  array<string, string>  $where  Parameter constraints
+     * @param string                $uri        The URI pattern for the route
+     * @param string|null           $name       Optional route name
+     * @param array<string>         $middleware Middleware to apply
+     * @param string|null           $domain     Domain constraint
+     * @param array<string, string> $where      Parameter constraints
+     *
      * @return self New Route instance configured for DELETE method
      */
     public static function delete(

@@ -1,0 +1,20 @@
+parameters:
+    level: 5
+    paths:
+        - src
+        - tests
+    tmpDir: build/phpstan
+    treatPhpDocTypesAsCertain: false
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        # Allow dynamic property access in tests
+        - '#Access to an undefined property#'
+        # Ignore missing array value types
+        - identifier: missingType.iterableValue
+    excludePaths:
+        - tests/Pest.php
+        - vendor/*
+    stubFiles:
+        - stubs/Attributes.stub
+    bootstrapFiles:
+        - vendor/autoload.php
