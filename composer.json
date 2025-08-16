@@ -56,10 +56,7 @@
   "autoload": {
     "psr-4": {
       "Pixielity\\LaravelAttributeCollector\\": "src/"
-    },
-    "files": [
-      "vendor/attributes.php"
-    ]
+    }
   },
   "autoload-dev": {
     "psr-4": {
